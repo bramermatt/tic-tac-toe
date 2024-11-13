@@ -17,8 +17,8 @@ let gameActive = false;
 
 // Update scoreboard
 function updateScores() {
-    playerXScoreDisplay.textContent = `Player X: ${playerXWins}`;
-    playerOScoreDisplay.textContent = `Player O: ${playerOWins}`;
+    playerXScoreDisplay.textContent = `X Wins: ${playerXWins}`;
+    playerOScoreDisplay.textContent = `O Wins: ${playerOWins}`;
 }
 
 // Update the active player display

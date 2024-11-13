@@ -39,6 +39,8 @@ main {
 
         display: flex;
         flex-wrap: wrap;
+
+        justify-content: center;
         gap: 2vw;
 
         .playerX, .playerO, .active {
@@ -49,6 +51,11 @@ main {
             }
 
 
+        }
+
+        #active-player {
+            border-bottom: thin solid;
+            padding-bottom: 5px;
         }
 
     }

@@ -96,12 +96,15 @@ main {
         .square.hover-x:hover {
             background-color: lightcoral;
             color: lightcoral;
+            cursor: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/svgs/solid/x.svg'), pointer; /* Custom X cursor */
         }
         
         .square.hover-o:hover {
             background-color: lightblue;
             color: lightblue;
+            cursor: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/svgs/solid/o.svg'), pointer !; /* Custom O cursor */
         }
+        
 
     }
 
@@ -163,7 +166,7 @@ main {
     text-align: center;
 
     .modal-content {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0);
         padding: 20px;
         border-radius: 10px;
         width: 300px;
@@ -185,6 +188,8 @@ main {
         cursor: pointer;
         border-radius: 5px;
 
+        font-size: large;
+
         font-weight: bolder;
     }
     
@@ -196,7 +201,7 @@ main {
 
 }
 
-@media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: light) {
 
     body {
         background-color: rgba(255, 255, 255, 0.4);

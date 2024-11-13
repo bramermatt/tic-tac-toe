@@ -23,7 +23,7 @@ function updateScores() {
 
 // Update the active player display
 function updateActivePlayer() {
-    activePlayerDisplay.textContent = currentPlayer;
+    activePlayerDisplay.textContent = `Active Player: ${currentPlayer}`;
 }
 
 // Initialize or reset game

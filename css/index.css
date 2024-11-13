@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: auto;
+    scroll-behavior: smooth;
+
+    body {
+        padding: 0;
+        margin: 0 auto;
+        cursor: default;
+
+        font-family: system-ui;
+    }
+
+}
+
+
+nav {
+    padding: 1em;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+main {
+
+    padding: 1em;
+    max-width: 500px;
+    margin: 0 auto;
+    max-height: 100vh;
+
+    .winBoard {
+        padding: 1em;
+        border: thin solid;
+        margin-bottom: 10px;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2vw;
+
+        .playerX, .playerO, .active {
+
+            h2, h1 {
+                margin: 0;
+                line-height: 1.2em;
+            }
+
+
+        }
+
+    }
+
+    .gameBoard {
+        /* padding: 1em; */
+        /* border: thin solid; */
+
+        /* max-height: 50vh; */
+        /* height: 100vh; */
+        max-width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1vw;
+        align-items: center;
+
+        margin-bottom: 5vh;
+
+
+        .square {
+            padding: 1em;
+            border: thin solid;
+            height: 130px;
+
+            /* width: 130px; */
+
+            /* height: 100%; */
+            /* width: 100%; */
+
+            font-size: 4vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* width: 100%; */
+            /* max-height: 250px; */
+            /* max-width: 250px; */
+        }
+
+        .square:hover {
+            background-color: rgba(240, 248, 255, 0.438);
+            cursor: pointer;
+        }
+
+        .square.hover-x:hover {
+            background-color: lightcoral;
+            color: lightcoral;
+        }
+        
+        .square.hover-o:hover {
+            background-color: lightblue;
+            color: lightblue;
+        }
+
+    }
+
+
+    .controlBoard {
+        padding: 1em;
+        /* border: thin solid; */
+        margin-top: 10px;
+
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+
+        .controls {
+            display: flex;
+            
+            justify-content: space-around;
+            gap: 3vw;
+
+            i {
+                font-size: 3vh;
+            }
+
+            i:hover {
+                cursor: pointer;
+                opacity: 50%;
+            }
+
+            .button {
+                display: flex;
+                flex-direction: column;
+                gap: 1vh;
+                align-items: center;
+            }
+
+        }
+
+    }
+
+
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .modal-content {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+
+        color: white;
+
+        h2 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+    }
+    
+    #newGameButton {
+        padding: 1em;
+        background-color: #2a552b;
+        color: white;
+        /* color: rgba(0, 0, 0, 0.9); */
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+
+        font-weight: bolder;
+    }
+    
+    #newGameButton:hover {
+        background-color: #45a049;
+    }
+    
+
+
+}
+
+@media screen and (prefers-color-scheme: dark) {
+
+    body {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    main {
+
+        .controlBoard {
+            background-color: rgb(255, 255, 255);;
+        }
+    }
+    
+}
+
+
+
+@media screen and (prefers-color-scheme: dark) {
+
+    body {
+        background-color: rgba(0, 0, 0);;
+    }
+
+    main {
+
+        .controlBoard {
+            background-color: rgba(0, 0, 0);;
+        }
+    }
+    
+}

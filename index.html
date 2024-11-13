@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme" content="light dark"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/icons/mLogo.png">
+
+    <!-- menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <title>Tic-Tac-Toe!</title>
+
+</head>
+<body>
+
+    <!-- <nav>
+        <h1>Tic-Tac-Toe!</h1>
+    </nav> -->
+    
+
+    <main>
+
+    <div class="winBoard">
+        <div class="playerX">
+            <h2>Player X: </h2>
+        </div>
+        <div class="playerO">
+            <h2>Player O: </h2>
+        </div>
+
+        <div class="active">
+            <h2>Active Player: <span id="active-player">X</span></h2>
+        </div>
+    </div>
+
+    <div class="gameBoard">
+        <div class="square" data-index="0"></div>
+        <div class="square" data-index="1"></div>
+        <div class="square" data-index="2"></div>
+        <div class="square" data-index="3"></div>
+        <div class="square" data-index="4"></div>
+        <div class="square" data-index="5"></div>
+        <div class="square" data-index="6"></div>
+        <div class="square" data-index="7"></div>
+        <div class="square" data-index="8"></div>
+    </div>
+
+    <div class="controlBoard">
+        <div class="controls">
+
+            <div class="button">
+            <i class="fa-solid fa-rotate-left" id="resetGame"></i>
+            Reset Game
+            </div>
+
+            <div class="button">
+            <i class="fa-solid fa-play" id="startGame"></i>
+            New Game
+            </div>
+
+        </div>
+
+    </div>
+
+    </main>
+
+
+
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2 id="gameOverMessage"></h2>
+            <button id="newGameButton">Start New Game</button>
+        </div>
+    </div>
+    
+
+
+</body>
+
+
+<script src="js/game.js"></script>
+
+
+</html>

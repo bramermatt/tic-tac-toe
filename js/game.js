@@ -49,10 +49,28 @@ function resetGame() {
     startGame();
 }
 
+// Update cursor based on current player
+function updateCursor() {
+    if (currentPlayer === 'X') {
+        document.body.style.cursor = 'url("../img/x-solid.svg"), auto'; // Custom cursor for 'X'
+    } else {
+        document.body.style.cursor = 'url("../img/o-solid.svg"), auto'; // Custom cursor for 'O'
+    }
+}
+
+// Function to toggle the player, update cursor, and display the active player
+function switchPlayer() {
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    updateCursor();
+    updateActivePlayer(); // Update the active player display
+}
+
+
 // Hover effect based on current player
 function addHoverEffect(event) {
     if (!event.target.textContent) {
         event.target.classList.add(currentPlayer === 'X' ? 'hover-x' : 'hover-o');
+
     }
 }
 

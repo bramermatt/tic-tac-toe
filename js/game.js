@@ -24,6 +24,7 @@ function updateScores() {
 // Update the active player display
 function updateActivePlayer() {
     activePlayerDisplay.textContent = `Active Player: ${currentPlayer}`;
+    setActivePlayer(currentPlayer); // Update the body background color
 }
 
 // Initialize or reset game
@@ -34,6 +35,7 @@ function startGame() {
         square.classList.remove('hover-x', 'hover-o');
         square.addEventListener('mouseover', addHoverEffect);
         square.addEventListener('mouseout', removeHoverEffect);
+        square.addEventListener('click', handleSquareClick, { once: true });
     });
     currentPlayer = 'X';
     gameActive = true;
@@ -65,44 +67,49 @@ function switchPlayer() {
     updateActivePlayer(); // Update the active player display
 }
 
-
 // Hover effect based on current player
 function addHoverEffect(event) {
-    if (!event.target.textContent) {
-        event.target.classList.add(currentPlayer === 'X' ? 'hover-x' : 'hover-o');
-
+    const square = event.target;
+    if (!square.textContent) {
+        square.classList.add(currentPlayer === 'X' ? 'hover-x' : 'hover-o');
     }
 }
 
 function removeHoverEffect(event) {
-    event.target.classList.remove('hover-x', 'hover-o');
+    const square = event.target;
+    square.classList.remove('hover-x', 'hover-o');
 }
 
 // Handle click on a square
 function handleSquareClick(event) {
-    const index = event.target.getAttribute('data-index');
+    const square = event.target;
+    const squareIndex = Array.from(squares).indexOf(square);
 
-    if (!board[index] && gameActive) {
-        board[index] = currentPlayer;
-        event.target.textContent = currentPlayer;
-        event.target.classList.remove('hover-x', 'hover-o');
+    if (board[squareIndex] || !gameActive) {
+        return;
+    }
 
-        if (checkWin()) {
-            gameActive = false;
-            if (currentPlayer === 'X') {
-                playerXWins++;
-            } else {
-                playerOWins++;
-            }
-            updateScores();
-            showGameOverModal(`${currentPlayer} Wins!`);
-        } else if (board.every(cell => cell)) {
-            gameActive = false;
-            showGameOverModal("It's a Draw!");
+    board[squareIndex] = currentPlayer;
+    square.textContent = currentPlayer;
+    square.classList.remove('hover-x', 'hover-o');
+
+    if (checkWin()) {
+        gameActive = false;
+        gameOverMessage.textContent = `${currentPlayer} Wins!`;
+        gameOverModal.style.display = 'block';
+        if (currentPlayer === 'X') {
+            playerXWins++;
         } else {
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            updateActivePlayer(); // Update the active player display
+            playerOWins++;
         }
+        updateScores();
+    } else if (board.every(cell => cell)) {
+        gameActive = false;
+        gameOverMessage.textContent = `It's a Draw!`;
+        gameOverModal.style.display = 'block';
+    } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        updateActivePlayer();
     }
 }
 
@@ -124,11 +131,21 @@ function showGameOverModal(message) {
     gameOverModal.style.display = 'flex'; // Show the modal
 }
 
+// Set active player background color
+function setActivePlayer(player) {
+    const body = document.body;
+    body.classList.remove('active-x', 'active-o');
+    if (player === 'X') {
+        body.classList.add('active-x');
+    } else if (player === 'O') {
+        body.classList.add('active-o');
+    }
+}
+
 // Event listeners
-squares.forEach(square => square.addEventListener('click', handleSquareClick));
-resetButton.addEventListener('click', resetGame);
+resetButton.addEventListener('click', startGame);
 startButton.addEventListener('click', startGame);
-newGameButton.addEventListener('click', startGame); // Start new game when button is clicked
+newGameButton.addEventListener('click', startGame);
 
 // Start initial game
 startGame();

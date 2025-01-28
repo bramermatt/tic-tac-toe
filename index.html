@@ -6,7 +6,9 @@
 
     <meta name="color-scheme" content="light dark"/>
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/icons/mLogo.png">
+
+    <link rel="icon" type="image/png" href="img/square-full-regular.svg" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="img/square-full-regular-white.svg" media="(prefers-color-scheme: dark)">
 
     <!-- menu icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -58,12 +60,41 @@
             Reset Game
             </div>
 
+            <div class="button" id="historyButton">
+                <i class="fa-solid fa-book"></i>
+                History
+            </div>
+
             <div class="button">
             <i class="fa-solid fa-play" id="startGame"></i>
             New Game
             </div>
 
         </div>
+
+
+        <div class="modal" id="historyModal">
+            <div class="modal-content" style="text-align: left;">
+            <span class="close" id="closeHistoryButton">&times;</span>
+            <h2>History of Tic-Tac-Toe</h2>
+            <p>Tic-Tac-Toe, also known as Noughts and Crosses, is a simple game for two players. The game has been played since ancient times, with evidence suggesting that a version of the game was played in the Roman Empire around the first century BC. The game was called "Terni Lapilli" and was played on a grid of 3x3 squares, similar to the modern version of Tic-Tac-Toe.</p>
+
+            <p>In the 19th century, the game became popular in England under the name "Noughts and Crosses." The game was played with pencil and paper, and the rules were the same as the modern version. The game was often played by children as a way to pass the time.</p>
+
+            <p>In the early 20th century, the game was introduced to the United States, where it became known as Tic-Tac-Toe. The game gained popularity in the US and became a common pastime for children and adults alike. The simplicity of the game, combined with its strategic elements, made it a favorite among players of all ages.</p>
+
+            <p>With the advent of computers in the mid-20th century, Tic-Tac-Toe became one of the first games to be programmed and played on early computer systems. In 1952, a computer scientist named A.S. Douglas created a Tic-Tac-Toe program called "OXO" as part of his PhD thesis at the University of Cambridge. The game was played on the EDSAC computer and is considered one of the earliest examples of computer gaming.</p>
+
+            <p>In the 1970s and 1980s, Tic-Tac-Toe was included in many early video game consoles and home computers. The game was often used as a demonstration of the capabilities of these new technologies. As video games became more advanced, Tic-Tac-Toe remained a popular choice for simple, quick gameplay.</p>
+
+            <p>Today, Tic-Tac-Toe is still enjoyed by millions of people around the world. The game is often used as a teaching tool for young children to learn about strategy and critical thinking. It is also a popular choice for casual gaming on mobile devices and online platforms.</p>
+
+            <p>Despite its simplicity, Tic-Tac-Toe has a rich history and continues to be a beloved game for players of all ages. Whether played with pencil and paper, on a computer, or on a mobile device, Tic-Tac-Toe remains a timeless classic.</p>
+            <!-- <button id="closeHistoryButton">Close</button> -->
+            </div>
+        </div>
+
+
 
     </div>
 

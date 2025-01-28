@@ -182,21 +182,39 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: auto; /* Make it scrollable if content is too large */
 
     .modal-content {
         background-color: rgba(0, 0, 0);
         padding: 20px;
         border-radius: 10px;
-        width: 300px;
-        margin: 20% auto;
+        max-width: 550px;
+        margin: 10% auto;
 
         color: white;
+        overflow: auto;
 
         h2 {
             margin: 0;
             margin-bottom: 10px;
         }
+
+        span {
+            color: #aaa;
+            float: right;
+            font-size: 5vh;
+            font-weight: bold;
+            position: relative;
+            /* right: 2vw; */
+            top: -2vh;
+            cursor: pointer;
+        }
+
+        span:hover {
+            color: white;
+        }
     }
+}
     
     #newGameButton {
         padding: 1em;
@@ -216,9 +234,6 @@ main {
         background-color: #45a049;
     }
     
-
-
-}
 
 
 footer {
@@ -244,6 +259,79 @@ a:link, a:visited {
     border-bottom: thin solid;
     font-weight: bold;
 }
+
+/* iPad Pro */
+@media screen and (max-width: 1400px) {
+
+    main {
+        max-width: 900px;
+
+        .gameBoard {
+            .square {
+                height: 250px;
+            }
+        }
+
+    }
+
+    footer {
+        position: relative;
+    }
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    main {
+        max-width: 800px;
+
+        .gameBoard {
+            .square {
+                height: 200px;
+            }
+        }
+
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+
+    main {
+        max-width: 500px;
+
+        .gameBoard {
+            .square {
+                height: 130px;
+            }
+        }
+
+    }
+
+}
+
+
+@media screen and (max-height: 800px) {
+    main {
+        max-width: 600px;
+        .gameBoard {
+            .square {
+                height: 80px;
+            }
+        }
+
+        .controlBoard {
+            /* max-width: 220px; */
+        }
+    }
+}
+
+
+
+
+
 
 @media screen and (prefers-color-scheme: light) {
 

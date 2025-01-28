@@ -149,3 +149,12 @@ newGameButton.addEventListener('click', startGame);
 
 // Start initial game
 startGame();
+
+
+document.getElementById('historyButton').addEventListener('click', function() {
+    document.getElementById('historyModal').style.display = 'block';
+});
+
+document.getElementById('closeHistoryButton').addEventListener('click', function() {
+    document.getElementById('historyModal').style.display = 'none';
+});

@@ -32,6 +32,8 @@ main {
     margin: 0 auto;
     max-height: 100vh;
 
+    overflow: hidden;
+
     .winBoard {
         padding: 1em;
         border: thin solid;
@@ -138,6 +140,8 @@ main {
         max-width: 500px;
         margin: 0 auto;
 
+        display: none;
+
         .controls {
             display: flex;
             
@@ -158,6 +162,10 @@ main {
                 flex-direction: column;
                 gap: 1vh;
                 align-items: center;
+            }
+
+            p {
+                margin: 0;
             }
 
         }
@@ -276,6 +284,9 @@ a:link, a:visited {
 
     footer {
         position: relative;
+        top: 20vh;
+
+        display: none;
     }
 
 }
@@ -287,9 +298,35 @@ a:link, a:visited {
     main {
         max-width: 800px;
 
+        .winBoard {
+            border: none;
+            padding: 0;
+            
+            h2 {
+                font-size: medium;
+            }
+        }
+
         .gameBoard {
+            margin-top: 5vh;
+            
             .square {
                 height: 200px;
+                
+            }
+        }
+
+        .controlBoard {
+
+            .controls {
+
+                i {
+                    font-size: 5vh;
+                }
+
+                p {
+                    display: none;
+                }
             }
         }
 
@@ -297,10 +334,11 @@ a:link, a:visited {
     
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 300px) {
 
     main {
         max-width: 500px;
+
 
         .gameBoard {
             .square {
@@ -313,12 +351,14 @@ a:link, a:visited {
 }
 
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 750px) {
     main {
         max-width: 600px;
+
         .gameBoard {
+            
             .square {
-                height: 80px;
+                height: 150px;
             }
         }
 

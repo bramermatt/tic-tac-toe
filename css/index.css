@@ -4,6 +4,8 @@
 
 html {
     margin: auto;
+    max-height: 100dvh;
+    max-width: 100dvw;
     scroll-behavior: smooth;
 
     body {
@@ -80,7 +82,7 @@ main {
         gap: 1vw;
         align-items: center;
 
-        margin-bottom: 5vh;
+        /* margin-bottom: 5vh; */
 
 
         .square {

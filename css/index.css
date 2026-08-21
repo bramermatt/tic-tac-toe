@@ -36,6 +36,27 @@ main {
 
     /* overflow: hidden; */
 
+    .game-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 10px;
+
+        .game-tab {
+            background: transparent;
+            border: thin solid currentColor;
+            border-radius: 5px;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            padding: 0.6rem 1rem;
+        }
+
+        .game-tab.active {
+            background-color: currentColor;
+            color: Canvas;
+        }
+    }
+
     .winBoard {
         padding: 1em;
         border: thin solid;
@@ -49,7 +70,7 @@ main {
 
         border-radius: 5px;
 
-        .playerX, .playerO, .active {
+        .playerX, .playerO, .playerY, .active {
 
             h2, h1 {
                 margin: 0;
@@ -78,7 +99,7 @@ main {
         max-width: 100%;
 
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(var(--board-size, 3), 1fr);
         gap: 1vw;
         align-items: center;
 
@@ -86,6 +107,11 @@ main {
 
 
         .square {
+            appearance: none;
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
             padding: 1em;
             border: thin solid;
             height: 130px;
@@ -104,6 +130,10 @@ main {
             /* max-width: 250px; */
 
             border-radius: 5px;
+        }
+
+        &.four-by-four .square {
+            height: clamp(70px, 23vw, 120px);
         }
 
 
@@ -125,6 +155,11 @@ main {
             cursor: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/svgs/solid/o.svg'), pointer !; /* Custom O cursor */
         }
         
+        .square.hover-y:hover {
+            background-color: lightgreen;
+            color: lightgreen;
+        }
+
 
     }
 
@@ -413,4 +448,8 @@ body.active-x, .controlBoard.active-x {
 
 body.active-o, .controlBoard.active-o {
     background-color: rgba(173, 216, 230, 0.486);
+}
+
+body.active-y, .controlBoard.active-y {
+    background-color: rgba(144, 238, 144, 0.5);
 }

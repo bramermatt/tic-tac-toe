@@ -128,15 +128,52 @@ function handleSquareClick(event) {
 
 function checkWin() {
     const { size } = gameMode;
+    const winLength = 3;
     const winPatterns = [];
 
-    for (let index = 0; index < size; index++) {
-        winPatterns.push(Array.from({ length: size }, (_, column) => index * size + column));
-        winPatterns.push(Array.from({ length: size }, (_, row) => row * size + index));
+    // Horizontal
+    for (let row = 0; row < size; row++) {
+        for (let column = 0; column <= size - winLength; column++) {
+            const pattern = [];
+            for (let i = 0; i < winLength; i++) {
+                pattern.push(row * size + column + i);
+            }
+            winPatterns.push(pattern);
+        }
     }
 
-    winPatterns.push(Array.from({ length: size }, (_, index) => index * size + index));
-    winPatterns.push(Array.from({ length: size }, (_, index) => index * size + (size - 1 - index)));
+    // Vertical
+    for (let column = 0; column < size; column++) {
+        for (let row = 0; row <= size - winLength; row++) {
+            const pattern = [];
+            for (let i = 0; i < winLength; i++) {
+                pattern.push((row + i) * size + column);
+            }
+            winPatterns.push(pattern);
+        }
+    }
+
+    // Diagonal: top-left → bottom-right
+    for (let row = 0; row <= size - winLength; row++) {
+        for (let column = 0; column <= size - winLength; column++) {
+            const pattern = [];
+            for (let i = 0; i < winLength; i++) {
+                pattern.push((row + i) * size + (column + i));
+            }
+            winPatterns.push(pattern);
+        }
+    }
+
+    // Diagonal: top-right → bottom-left
+    for (let row = 0; row <= size - winLength; row++) {
+        for (let column = winLength - 1; column < size; column++) {
+            const pattern = [];
+            for (let i = 0; i < winLength; i++) {
+                pattern.push((row + i) * size + (column - i));
+            }
+            winPatterns.push(pattern);
+        }
+    }
 
     return winPatterns.some(pattern =>
         pattern.every(index => board[index] === currentPlayer)
